@@ -3,7 +3,6 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Product from "@/components/Product";
 import { useEffect, useRef, useState } from "react";
-import { truncate } from "lodash";
 
 // Define the ProductData interface
 interface ProductData {
@@ -92,7 +91,7 @@ export default function FeaturedProducts() {
           >
             <Product
               image={product.images[1]} // Assuming the API returns an array of images
-              title={truncate(product.title, { length: 21, omission: "" })}
+              title={product.title?.substring(0, 21) as string}
               price={Number((product.price * 119.44).toFixed())}
             />
           </div>
